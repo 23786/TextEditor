@@ -8,17 +8,11 @@
 
 import Cocoa
 
-class WindowController: NSWindowController, NSWindowDelegate {
+class TEMainWindowController: NSWindowController, NSWindowDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
         
-        shouldCascadeWindows = true
-        self.window?.styleMask = .unifiedTitleAndToolbar
     }
     
     // MARK: - Set the Background Color.
@@ -51,6 +45,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 }
 
 func runCommand(launchPath: String, arguments: [String]) -> String {
+    
     let pipe = Pipe()
     let file = pipe.fileHandleForReading
     

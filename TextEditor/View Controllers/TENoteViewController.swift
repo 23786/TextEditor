@@ -8,14 +8,17 @@
 
 import Cocoa
 
-class NoteViewController: NSViewController {
+class TENoteViewController: NSViewController {
 
     @IBOutlet var textview: NSTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.setBackground(color: .white)
         self.view.window?.backgroundColor = .white
         // Do view setup here.
+        
     }
     
 }

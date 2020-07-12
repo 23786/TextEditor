@@ -9,36 +9,34 @@
 /* Begin PBXBuildFile section */
 		180A95ED24209B270014F961 /* WordCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95EB24209B270014F961 /* WordCountViewController.swift */; };
 		180A95EE24209B270014F961 /* WordCountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180A95EC24209B270014F961 /* WordCountViewController.xib */; };
-		1814255A240A9285000190C4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18142559240A9285000190C4 /* HomeViewController.swift */; };
+		1814255A240A9285000190C4 /* TEHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18142559240A9285000190C4 /* TEHomeViewController.swift */; };
+		1843476724BB577B00E31070 /* Class Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843476624BB577B00E31070 /* Class Extensions.swift */; };
 		184D4F68240D24C60054CB16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184D4F67240D24C60054CB16 /* Main.storyboard */; };
-		18738ABF242486FF00D4C703 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18738ABD242486FF00D4C703 /* NoteViewController.swift */; };
-		18BFA056241CFEF200E5E33C /* SFMonoLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18BFA055241CFEF200E5E33C /* SFMonoLight.otf */; };
-		18BFA058241D028800E5E33C /* SFProTextLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18BFA057241D028800E5E33C /* SFProTextLight.otf */; };
-		18F7375F2409F9A000C47727 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7375E2409F9A000C47727 /* AppDelegate.swift */; };
-		18F737612409F9A000C47727 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F737602409F9A000C47727 /* ViewController.swift */; };
-		18F737632409F9A000C47727 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F737622409F9A000C47727 /* Document.swift */; };
+		18738ABF242486FF00D4C703 /* TENoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18738ABD242486FF00D4C703 /* TENoteViewController.swift */; };
+		18F7375F2409F9A000C47727 /* TEAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7375E2409F9A000C47727 /* TEAppDelegate.swift */; };
+		18F737612409F9A000C47727 /* TEMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F737602409F9A000C47727 /* TEMainViewController.swift */; };
+		18F737632409F9A000C47727 /* TETextDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F737622409F9A000C47727 /* TETextDocument.swift */; };
 		18F737652409F9A100C47727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F737642409F9A100C47727 /* Assets.xcassets */; };
-		18F737712409FB0B00C47727 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F737702409FB0B00C47727 /* WindowController.swift */; };
-		18F737732409FB4300C47727 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F737722409FB4300C47727 /* Content.swift */; };
+		18F737712409FB0B00C47727 /* TEMainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F737702409FB0B00C47727 /* TEMainWindowController.swift */; };
+		18F737732409FB4300C47727 /* TEDocumentContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F737722409FB4300C47727 /* TEDocumentContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		180A95EB24209B270014F961 /* WordCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCountViewController.swift; sourceTree = "<group>"; };
 		180A95EC24209B270014F961 /* WordCountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordCountViewController.xib; sourceTree = "<group>"; };
-		18142559240A9285000190C4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		18142559240A9285000190C4 /* TEHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEHomeViewController.swift; sourceTree = "<group>"; };
+		1843476624BB577B00E31070 /* Class Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Class Extensions.swift"; sourceTree = "<group>"; };
 		184D4F67240D24C60054CB16 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		18738ABD242486FF00D4C703 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
-		18BFA055241CFEF200E5E33C /* SFMonoLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFMonoLight.otf; sourceTree = "<group>"; };
-		18BFA057241D028800E5E33C /* SFProTextLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFProTextLight.otf; sourceTree = "<group>"; };
+		18738ABD242486FF00D4C703 /* TENoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TENoteViewController.swift; sourceTree = "<group>"; };
 		18F7375B2409F9A000C47727 /* TextEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		18F7375E2409F9A000C47727 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18F737602409F9A000C47727 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		18F737622409F9A000C47727 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		18F7375E2409F9A000C47727 /* TEAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEAppDelegate.swift; sourceTree = "<group>"; };
+		18F737602409F9A000C47727 /* TEMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEMainViewController.swift; sourceTree = "<group>"; };
+		18F737622409F9A000C47727 /* TETextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TETextDocument.swift; sourceTree = "<group>"; };
 		18F737642409F9A100C47727 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18F737692409F9A100C47727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18F7376A2409F9A100C47727 /* TextEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextEditor.entitlements; sourceTree = "<group>"; };
-		18F737702409FB0B00C47727 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		18F737722409FB4300C47727 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		18F737702409FB0B00C47727 /* TEMainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEMainWindowController.swift; sourceTree = "<group>"; };
+		18F737722409FB4300C47727 /* TEDocumentContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEDocumentContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,22 +59,14 @@
 			path = WordCountViewController;
 			sourceTree = "<group>";
 		};
-		18A1D7AC241E151E00EA660D /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				18BFA055241CFEF200E5E33C /* SFMonoLight.otf */,
-				18BFA057241D028800E5E33C /* SFProTextLight.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		18A205182421C5D5008AF703 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				18F737602409F9A000C47727 /* ViewController.swift */,
+				1843476624BB577B00E31070 /* Class Extensions.swift */,
+				18F737602409F9A000C47727 /* TEMainViewController.swift */,
 				184D4F67240D24C60054CB16 /* Main.storyboard */,
-				18738ABD242486FF00D4C703 /* NoteViewController.swift */,
-				18142559240A9285000190C4 /* HomeViewController.swift */,
+				18738ABD242486FF00D4C703 /* TENoteViewController.swift */,
+				18142559240A9285000190C4 /* TEHomeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -100,12 +90,11 @@
 		18F7375D2409F9A000C47727 /* TextEditor */ = {
 			isa = PBXGroup;
 			children = (
-				18F7375E2409F9A000C47727 /* AppDelegate.swift */,
-				18F737702409FB0B00C47727 /* WindowController.swift */,
+				18F7375E2409F9A000C47727 /* TEAppDelegate.swift */,
+				18F737702409FB0B00C47727 /* TEMainWindowController.swift */,
 				18A205182421C5D5008AF703 /* View Controllers */,
-				18A1D7AC241E151E00EA660D /* Fonts */,
-				18F737622409F9A000C47727 /* Document.swift */,
-				18F737722409FB4300C47727 /* Content.swift */,
+				18F737622409F9A000C47727 /* TETextDocument.swift */,
+				18F737722409FB4300C47727 /* TEDocumentContent.swift */,
 				18F737692409F9A100C47727 /* Info.plist */,
 				18F737642409F9A100C47727 /* Assets.xcassets */,
 				180A95EF24209B340014F961 /* WordCountViewController */,
@@ -140,8 +129,9 @@
 		18F737532409F9A000C47727 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TE;
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Zhu Yixuan";
 				TargetAttributes = {
 					18F7375A2409F9A000C47727 = {
@@ -173,9 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				180A95EE24209B270014F961 /* WordCountViewController.xib in Resources */,
-				18BFA056241CFEF200E5E33C /* SFMonoLight.otf in Resources */,
 				184D4F68240D24C60054CB16 /* Main.storyboard in Resources */,
-				18BFA058241D028800E5E33C /* SFProTextLight.otf in Resources */,
 				18F737652409F9A100C47727 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,14 +175,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18738ABF242486FF00D4C703 /* NoteViewController.swift in Sources */,
-				18F737612409F9A000C47727 /* ViewController.swift in Sources */,
-				18F737712409FB0B00C47727 /* WindowController.swift in Sources */,
-				18F7375F2409F9A000C47727 /* AppDelegate.swift in Sources */,
-				18F737732409FB4300C47727 /* Content.swift in Sources */,
+				18738ABF242486FF00D4C703 /* TENoteViewController.swift in Sources */,
+				18F737612409F9A000C47727 /* TEMainViewController.swift in Sources */,
+				18F737712409FB0B00C47727 /* TEMainWindowController.swift in Sources */,
+				18F7375F2409F9A000C47727 /* TEAppDelegate.swift in Sources */,
+				18F737732409FB4300C47727 /* TEDocumentContent.swift in Sources */,
+				1843476724BB577B00E31070 /* Class Extensions.swift in Sources */,
 				180A95ED24209B270014F961 /* WordCountViewController.swift in Sources */,
-				18F737632409F9A000C47727 /* Document.swift in Sources */,
-				1814255A240A9285000190C4 /* HomeViewController.swift in Sources */,
+				18F737632409F9A000C47727 /* TETextDocument.swift in Sources */,
+				1814255A240A9285000190C4 /* TEHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +217,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -289,6 +279,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -321,6 +312,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TextEditor/TextEditor.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XG7269D873;
@@ -342,6 +334,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TextEditor/TextEditor.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XG7269D873;

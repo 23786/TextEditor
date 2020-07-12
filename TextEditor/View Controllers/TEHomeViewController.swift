@@ -18,7 +18,7 @@ func NSColorFromRGB(rgbValue: UInt) -> NSColor {
     )
 }
 
-class HomeViewController: NSViewController {
+class TEHomeViewController: NSViewController {
 
     // MARK: - Properties
     @IBOutlet weak var CustomView: NSView!

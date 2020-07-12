@@ -9,7 +9,8 @@
 import Foundation
 import Cocoa
 
-class Content: NSObject {
+class TEDocumentContent: NSObject {
+    
     @objc dynamic var contentString = ""
     
     public init(contentString: String) {
@@ -18,7 +19,7 @@ class Content: NSObject {
     
 }
 
-extension Content {
+extension TEDocumentContent {
     
     func read(from data: Data) {
         contentString = String(bytes: data, encoding: .utf8)!

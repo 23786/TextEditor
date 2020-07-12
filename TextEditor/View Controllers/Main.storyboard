@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17132.0.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14550"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="17006"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17132.0.2"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
@@ -375,7 +375,7 @@
                                         <menuItem isSeparatorItem="YES" id="bCH-MB-lFG"/>
                                         <menuItem title="Tool Bar" keyEquivalent="2" id="FkH-Yk-3uC">
                                             <connections>
-                                                <action selector="HideShowToolBar:" target="Ady-hI-5gd" id="Qep-ea-Iwn"/>
+                                                <action selector="toggleSimpleMode:" target="Ady-hI-5gd" id="Qep-ea-Iwn"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Tab Bar" keyEquivalent="3" id="N3L-RM-0ao">
@@ -444,12 +444,12 @@
                                                 <items>
                                                     <menuItem title="Light" keyEquivalent="L" id="5Wc-gJ-yrq">
                                                         <connections>
-                                                            <action selector="tvToLight:" target="Ady-hI-5gd" id="VaO-ew-vqa"/>
+                                                            <action selector="textViewToLight:" target="Ady-hI-5gd" id="VaO-ew-vqa"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Dark" keyEquivalent="D" id="CQg-Us-F3y">
                                                         <connections>
-                                                            <action selector="tvToDark:" target="Ady-hI-5gd" id="PNV-eE-wkg"/>
+                                                            <action selector="textViewToDark:" target="Ady-hI-5gd" id="PNV-eE-wkg"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>
@@ -512,7 +512,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="TextEditor" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="TEAppDelegate" customModule="TextEditor" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -521,13 +521,35 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" customClass="WindowController" customModule="TextEditor" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="TextEditor" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="preferred" titlebarAppearsTransparent="YES" id="Ckk-yw-fiv">
+                <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" customClass="TEMainWindowController" customModule="TextEditor" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="preferred" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="200" y="320" width="640" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <value key="minSize" type="size" width="512" height="320"/>
+                        <toolbar key="toolbar" implicitIdentifier="252D416A-35F5-49E8-8D9A-D0FE833485DA" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="F2F-8X-vLP">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="uVR-60-dgL"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="xNO-7C-h8V"/>
+                                <toolbarItem implicitItemIdentifier="7E7161C0-707C-4470-910B-FDEA50DEF690" label="Bar" paletteLabel="Bar" tag="-1" image="NSListViewTemplate" id="7F3-8S-Cot">
+                                    <size key="minSize" width="32" height="33"/>
+                                    <size key="maxSize" width="32" height="33"/>
+                                    <connections>
+                                        <action selector="toggleSimpleMode:" target="6f7-a7-6o1" id="fAb-3f-jzz"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="FD9C8E34-C2D1-46B2-9ADB-D9BC0276F231" label="Home" paletteLabel="Home" tag="-1" image="NSHomeTemplate" id="znF-Qi-eSa">
+                                    <size key="minSize" width="32" height="39"/>
+                                    <size key="maxSize" width="32" height="39"/>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="xNO-7C-h8V"/>
+                                <toolbarItem reference="7F3-8S-Cot"/>
+                                <toolbarItem reference="znF-Qi-eSa"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="jGA-0Y-lOj" id="98r-iN-zZc"/>
                         </connections>
@@ -543,25 +565,13 @@
         <!--Text Editor-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Text Editor" showSeguePresentationStyle="single" id="5gI-5U-AMq" customClass="ViewController" customModule="TextEditor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Text Editor" showSeguePresentationStyle="single" id="5gI-5U-AMq" customClass="TEMainViewController" customModule="TextEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="HjY-h6-oSj">
-                                <rect key="frame" x="10" y="364" width="128" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="124" id="3OM-o9-Mze"/>
-                                    <constraint firstAttribute="height" constant="31" id="wgZ-KY-CMP"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="TextEditor" id="HKs-v3-Yrm">
-                                    <font key="font" size="24" name="SFProRounded-Heavy"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Gzf-h4-ahd">
-                                <rect key="frame" x="11" y="322" width="619" height="40"/>
+                                <rect key="frame" x="11" y="353" width="619" height="40"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dfh-Oc-PkW">
                                         <rect key="frame" x="0.0" y="0.0" width="619" height="40"/>
@@ -613,36 +623,8 @@
                                             <action selector="saveDocumentAs:" target="2Tp-Fl-jBw" id="s6Q-We-DwY"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-h7-9ie">
-                                        <rect key="frame" x="462" y="5" width="71" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="29" id="VXU-e5-dCC"/>
-                                            <constraint firstAttribute="width" constant="71" id="sq6-Gg-KOb"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="square" title="Find..." bezelStyle="shadowlessSquare" imagePosition="left" alignment="right" lineBreakMode="truncatingTail" state="on" inset="2" id="QbK-RB-pkb">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system" size="16"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="performFindPanelAction:" target="2Tp-Fl-jBw" id="Ffs-2h-VTK"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qK4-zw-yrX">
-                                        <rect key="frame" x="540" y="3" width="71" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="29" id="MnP-oI-ecE"/>
-                                            <constraint firstAttribute="width" constant="69" id="ZTh-91-2DQ"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="squareTextured" title="Code" bezelStyle="texturedSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="jCO-Ls-Sm6">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system" size="15"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="SwitchMode:" target="5gI-5U-AMq" id="fCd-y8-zZ2"/>
-                                        </connections>
-                                    </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9TX-m4-PHN">
-                                        <rect key="frame" x="371" y="5" width="101" height="29"/>
+                                        <rect key="frame" x="445" y="5" width="101" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="101" id="0qP-QT-bqu"/>
                                             <constraint firstAttribute="height" constant="29" id="qIO-FV-7hy"/>
@@ -657,49 +639,47 @@
                                             <action selector="showWordCount:" target="5gI-5U-AMq" id="TCo-EH-8Xf"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-h7-9ie">
+                                        <rect key="frame" x="555" y="5" width="50" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="VXU-e5-dCC"/>
+                                            <constraint firstAttribute="width" constant="50" id="sq6-Gg-KOb"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" title="Find..." bezelStyle="shadowlessSquare" imagePosition="left" alignment="right" lineBreakMode="truncatingTail" state="on" inset="2" id="QbK-RB-pkb">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system" size="16"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="performFindPanelAction:" target="2Tp-Fl-jBw" id="Ffs-2h-VTK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="qK4-zw-yrX" firstAttribute="leading" secondItem="TL6-h7-9ie" secondAttribute="trailing" constant="8" id="1v2-7g-92R"/>
                                     <constraint firstItem="zXA-DB-cuN" firstAttribute="leading" secondItem="UzS-Cd-csX" secondAttribute="trailing" constant="3" id="3dc-n9-IXn"/>
+                                    <constraint firstAttribute="trailing" secondItem="TL6-h7-9ie" secondAttribute="trailing" constant="14" id="85A-Tk-T5c"/>
                                     <constraint firstAttribute="bottom" secondItem="Dfh-Oc-PkW" secondAttribute="bottom" id="8wQ-AF-UAM"/>
                                     <constraint firstItem="lom-W4-uMM" firstAttribute="leading" secondItem="Gzf-h4-ahd" secondAttribute="leading" constant="7" id="CD5-az-9m8"/>
                                     <constraint firstItem="lom-W4-uMM" firstAttribute="top" secondItem="Gzf-h4-ahd" secondAttribute="top" constant="6" id="GNE-Ab-uLS"/>
-                                    <constraint firstAttribute="trailing" secondItem="qK4-zw-yrX" secondAttribute="trailing" constant="9" id="IIR-hm-Ohi"/>
                                     <constraint firstItem="Dfh-Oc-PkW" firstAttribute="top" secondItem="Gzf-h4-ahd" secondAttribute="top" id="J7C-4e-lvu"/>
                                     <constraint firstItem="UzS-Cd-csX" firstAttribute="top" secondItem="Gzf-h4-ahd" secondAttribute="top" constant="6" id="SeW-9v-VLm"/>
                                     <constraint firstItem="Dfh-Oc-PkW" firstAttribute="leading" secondItem="Gzf-h4-ahd" secondAttribute="leading" id="YvA-Ox-Cac"/>
                                     <constraint firstItem="9TX-m4-PHN" firstAttribute="top" secondItem="Gzf-h4-ahd" secondAttribute="top" constant="6" id="egf-2T-lFq"/>
                                     <constraint firstItem="TL6-h7-9ie" firstAttribute="top" secondItem="Gzf-h4-ahd" secondAttribute="top" constant="6" id="q6o-85-hgs"/>
-                                    <constraint firstItem="qK4-zw-yrX" firstAttribute="leading" secondItem="9TX-m4-PHN" secondAttribute="trailing" constant="69" id="sSr-wf-da3"/>
+                                    <constraint firstItem="TL6-h7-9ie" firstAttribute="leading" secondItem="9TX-m4-PHN" secondAttribute="trailing" constant="9" id="tdv-g2-ryL"/>
                                     <constraint firstItem="zXA-DB-cuN" firstAttribute="top" secondItem="Gzf-h4-ahd" secondAttribute="top" constant="6" id="uRr-pJ-fsK"/>
                                     <constraint firstAttribute="height" constant="40" id="v7g-3M-Z4l"/>
-                                    <constraint firstItem="qK4-zw-yrX" firstAttribute="top" secondItem="Gzf-h4-ahd" secondAttribute="top" constant="6" id="xF4-F7-Gld"/>
                                     <constraint firstAttribute="trailing" secondItem="Dfh-Oc-PkW" secondAttribute="trailing" id="ymR-NL-Ldk"/>
                                     <constraint firstItem="UzS-Cd-csX" firstAttribute="leading" secondItem="lom-W4-uMM" secondAttribute="trailing" constant="3" id="zD6-ck-Jym"/>
                                 </constraints>
                             </customView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rbo-o8-oQa">
-                                <rect key="frame" x="600" y="365" width="30" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="82J-AT-sYh"/>
-                                    <constraint firstAttribute="height" constant="22" id="tfd-9i-Tzj"/>
-                                </constraints>
-                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSHomeTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Npi-1X-ntm">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="vpT-7I-5Dv" kind="show" id="ezf-xb-2xN"/>
-                                </connections>
-                            </button>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLp-eY-fSk">
-                                <rect key="frame" x="11" y="12" width="619" height="304"/>
+                                <rect key="frame" x="11" y="12" width="619" height="333"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="a6q-mG-7ce">
-                                    <rect key="frame" x="0.0" y="0.0" width="608" height="304"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="619" height="333"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" allowsUndo="YES" spellingCorrection="YES" smartInsertDelete="YES" id="E0u-iA-KeT">
-                                            <rect key="frame" x="0.0" y="0.0" width="608" height="304"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="619" height="333"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <touchBar key="touchBar" id="Nqq-fe-MFv">
                                                 <touchBarItems>
@@ -707,7 +687,6 @@
                                                         <viewController key="viewController" id="KXC-9Z-YwH">
                                                             <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f1h-KN-8Ch">
                                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="TextEditor" id="HLg-wK-N29">
                                                                     <font key="font" metaFont="systemSemibold" size="18"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -719,30 +698,14 @@
                                                     <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFixedSpaceSmall" id="Ik0-bK-wBL"/>
                                                     <touchBarItem id="hzR-Ba-VKP">
                                                         <viewController key="viewController" id="9Bf-Vl-DmW">
-                                                            <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fo2-Ku-jHU">
+                                                            <button key="view" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fo2-Ku-jHU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSTouchBarTextJustifiedAlignTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0Qs-XK-JLz">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" usesAppearanceFont="YES"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="HideShowToolBar:" target="5gI-5U-AMq" id="ONv-3z-CE6"/>
-                                                                </connections>
-                                                            </button>
-                                                        </viewController>
-                                                    </touchBarItem>
-                                                    <touchBarItem id="7il-tB-hM8">
-                                                        <viewController key="viewController" id="Lyu-a8-gcq">
-                                                            <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7rn-Wo-Ati">
-                                                                <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="push" title="&lt;/&gt;" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="emf-Pp-uXf">
-                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                    <font key="font" metaFont="system" size="19"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="SwitchMode:" target="5gI-5U-AMq" id="vEQ-56-7dm"/>
+                                                                    <action selector="toggleSimpleMode:" target="5gI-5U-AMq" id="ONv-3z-CE6"/>
                                                                 </connections>
                                                             </button>
                                                         </viewController>
@@ -750,9 +713,8 @@
                                                     <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="3ot-a9-N1O"/>
                                                     <touchBarItem id="0Ef-t2-yci">
                                                         <viewController key="viewController" id="ls7-gX-TKF">
-                                                            <button key="view" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlV-ae-ths">
+                                                            <button key="view" verticalHuggingPriority="750" misplaced="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlV-ae-ths">
                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="push" title="Find..." bezelStyle="rounded" image="NSTouchBarSearchTemplate" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ui8-KZ-ibL">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" usesAppearanceFont="YES"/>
@@ -765,9 +727,8 @@
                                                     </touchBarItem>
                                                     <touchBarItem id="m5M-C0-OtK">
                                                         <viewController key="viewController" id="oxd-rJ-QfU">
-                                                            <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C1W-jL-55K">
+                                                            <button key="view" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1W-jL-55K">
                                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="push" title="Show Word Count" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="T89-ts-gzV">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" usesAppearanceFont="YES"/>
@@ -782,7 +743,7 @@
                                             </touchBar>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="608" height="304"/>
+                                            <size key="minSize" width="619" height="333"/>
                                             <size key="maxSize" width="619" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content=" ">
@@ -810,35 +771,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" controlSize="mini" horizontal="NO" id="5w4-ag-NiN">
-                                    <rect key="frame" x="608" y="0.0" width="11" height="304"/>
+                                    <rect key="frame" x="605" y="0.0" width="14" height="333"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cM4-vl-PeN">
-                                <rect key="frame" x="563" y="365" width="30" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="5jn-p4-4EG"/>
-                                    <constraint firstAttribute="width" constant="30" id="EiW-du-J9E"/>
-                                </constraints>
-                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="med-q9-H5d">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="HideShowToolBar:" target="5gI-5U-AMq" id="FoZ-yi-YN5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="yLp-eY-fSk" secondAttribute="bottom" constant="12" id="1lH-WC-wM9"/>
-                            <constraint firstItem="Rbo-o8-oQa" firstAttribute="leading" secondItem="cM4-vl-PeN" secondAttribute="trailing" constant="7" id="CrP-Ml-H1T"/>
-                            <constraint firstItem="yLp-eY-fSk" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="84" id="QHf-FW-Bie"/>
-                            <constraint firstItem="Gzf-h4-ahd" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="38" id="RNm-J1-J91"/>
-                            <constraint firstItem="HjY-h6-oSj" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="12" id="XH8-Ju-bVX"/>
-                            <constraint firstItem="HjY-h6-oSj" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="5" id="ZOS-Pa-F1f"/>
-                            <constraint firstItem="cM4-vl-PeN" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="12" id="aE8-qY-lFd"/>
-                            <constraint firstAttribute="trailing" secondItem="Rbo-o8-oQa" secondAttribute="trailing" constant="10" id="bWb-Uh-Asz"/>
-                            <constraint firstItem="Rbo-o8-oQa" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="12" id="geQ-yZ-8mA"/>
+                            <constraint firstItem="yLp-eY-fSk" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="55" id="QHf-FW-Bie"/>
+                            <constraint firstItem="Gzf-h4-ahd" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="7" id="RNm-J1-J91"/>
                             <constraint firstAttribute="trailing" secondItem="yLp-eY-fSk" secondAttribute="trailing" constant="10" id="ojl-bk-NGE"/>
                             <constraint firstAttribute="trailing" secondItem="Gzf-h4-ahd" secondAttribute="trailing" constant="10" id="pn6-bi-Ihr"/>
                             <constraint firstItem="Gzf-h4-ahd" firstAttribute="leading" secondItem="yLp-eY-fSk" secondAttribute="leading" id="wjW-hi-4bH"/>
@@ -846,11 +787,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ConstraintToTop" destination="QHf-FW-Bie" id="St3-6x-3q4"/>
-                        <outlet property="FakeBackground" destination="Dfh-Oc-PkW" id="M0N-iH-5vI"/>
-                        <outlet property="ModeButton" destination="qK4-zw-yrX" id="Uzg-SW-Oge"/>
-                        <outlet property="ToolBarView" destination="Gzf-h4-ahd" id="HcM-am-ott"/>
+                        <outlet property="constraintToTop" destination="QHf-FW-Bie" id="St3-6x-3q4"/>
                         <outlet property="textview" destination="E0u-iA-KeT" id="8Sb-Ee-tnA"/>
+                        <outlet property="toolbarBackground" destination="Dfh-Oc-PkW" id="M0N-iH-5vI"/>
+                        <outlet property="toolbarView" destination="Gzf-h4-ahd" id="HcM-am-ott"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -898,7 +838,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Avv-Xf-o1n">
-                                <rect key="frame" x="14" y="19" width="50" height="23"/>
+                                <rect key="frame" x="13" y="18" width="46" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="ezp-3H-cA5"/>
                                 </constraints>
@@ -977,7 +917,7 @@
                             <touchBarItem id="8hW-xP-Npe">
                                 <viewController key="viewController" id="FY1-dT-C1F">
                                     <button key="view" wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FD5-ZQ-M5j">
-                                        <rect key="frame" x="0.0" y="-11" width="174" height="41"/>
+                                        <rect key="frame" x="0.0" y="-12" width="176" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="6t6-ja-UCp"/>
                                         </constraints>
@@ -995,7 +935,7 @@
                             <touchBarItem id="eYt-iT-qJD">
                                 <viewController key="viewController" id="4Rp-41-bB6">
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W1Z-w3-1JV">
-                                        <rect key="frame" x="0.0" y="-11" width="120" height="41"/>
+                                        <rect key="frame" x="0.0" y="-12" width="122" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Rcs-AN-WSG"/>
                                         </constraints>
@@ -1023,7 +963,7 @@
         <!--Home-->
         <scene sceneID="eVV-wf-O1v">
             <objects>
-                <viewController title="Home" showSeguePresentationStyle="single" id="txE-fK-3Od" customClass="HomeViewController" customModule="TextEditor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" showSeguePresentationStyle="single" id="txE-fK-3Od" customClass="TEHomeViewController" customModule="TextEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="cIX-fp-r8L">
                         <rect key="frame" x="0.0" y="0.0" width="560" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1040,7 +980,7 @@
                                 <rect key="frame" x="405" y="13" width="142" height="334"/>
                                 <subviews>
                                     <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9LV-jk-0UB">
-                                        <rect key="frame" x="12" y="303" width="119" height="20"/>
+                                        <rect key="frame" x="14" y="303" width="115" height="20"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="roundRect" trackingMode="selectOne" id="ktx-wJ-3Xb">
                                             <font key="font" metaFont="label" size="12"/>
                                             <segments>
@@ -1071,7 +1011,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pTA-eu-gaZ">
-                                <rect key="frame" x="15" y="49" width="89" height="85"/>
+                                <rect key="frame" x="15" y="48" width="89" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="89" id="DUF-Tr-mSS"/>
                                     <constraint firstAttribute="height" constant="85" id="NrS-AS-lzb"/>
@@ -1096,7 +1036,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jum-25-rZ0">
-                                <rect key="frame" x="123" y="49" width="89" height="85"/>
+                                <rect key="frame" x="123" y="48" width="89" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="89" id="4Z9-5C-3Oa"/>
                                     <constraint firstAttribute="height" constant="85" id="gCM-MP-6oZ"/>
@@ -1121,7 +1061,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eEV-Wb-yXj">
-                                <rect key="frame" x="231" y="49" width="89" height="85"/>
+                                <rect key="frame" x="231" y="47" width="89" height="89"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="Yzm-te-SvY"/>
                                     <constraint firstAttribute="width" constant="89" id="dhl-VW-NlO"/>
@@ -1225,7 +1165,7 @@
         <!--Note View Controller-->
         <scene sceneID="hfA-fj-g5X">
             <objects>
-                <viewController id="7gq-Bb-t1x" customClass="NoteViewController" customModule="TextEditor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7gq-Bb-t1x" customClass="TENoteViewController" customModule="TextEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="oNw-Nb-dmq">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1233,16 +1173,16 @@
                             <scrollView appearanceType="aqua" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whD-KZ-LxC">
                                 <rect key="frame" x="0.0" y="7" width="480" height="255"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="asD-D8-hly">
-                                    <rect key="frame" x="0.0" y="0.0" width="465" height="255"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="255"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView verticallyResizable="YES" findStyle="bar" allowsDocumentBackgroundColorChange="YES" allowsImageEditing="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="Wd9-4J-382">
-                                            <rect key="frame" x="0.0" y="0.0" width="465" height="255"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="255"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <size key="minSize" width="465" height="255"/>
-                                            <size key="maxSize" width="478" height="10000000"/>
+                                            <size key="minSize" width="480" height="255"/>
+                                            <size key="maxSize" width="480" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="输入文本或插入图片……">
                                                     <attributes>
@@ -1256,12 +1196,12 @@
                                         </textView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Pnl-LB-OoS">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Pnl-LB-OoS">
                                     <rect key="frame" x="-100" y="-100" width="225" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="h17-Z3-qbz">
-                                    <rect key="frame" x="465" y="0.0" width="15" height="255"/>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="h17-Z3-qbz">
+                                    <rect key="frame" x="464" y="0.0" width="16" height="255"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1279,23 +1219,23 @@
             <point key="canvasLocation" x="2348" y="871"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jFA-os-lVT"/>
+        <segue reference="Anp-sU-drk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="AppIcon_Info" width="256" height="256"/>
         <image name="Mojave Night" width="573" height="297"/>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSHomeTemplate" width="14" height="14"/>
-        <image name="NSListViewTemplate" width="14" height="10"/>
-        <image name="NSTouchBarFolderTemplate" width="22" height="30"/>
-        <image name="NSTouchBarGetInfoTemplate" width="18" height="30"/>
-        <image name="NSTouchBarNewFolderTemplate" width="28" height="30"/>
-        <image name="NSTouchBarSearchTemplate" width="19" height="30"/>
-        <image name="NSTouchBarTextJustifiedAlignTemplate" width="14" height="30"/>
+        <image name="NSAddTemplate" width="15" height="11"/>
+        <image name="NSHomeTemplate" width="20" height="14"/>
+        <image name="NSListViewTemplate" width="17" height="10"/>
+        <image name="NSTouchBarFolderTemplate" width="19" height="12"/>
+        <image name="NSTouchBarGetInfoTemplate" width="15" height="13"/>
+        <image name="NSTouchBarNewFolderTemplate" width="20" height="12"/>
+        <image name="NSTouchBarSearchTemplate" width="14" height="13"/>
+        <image name="NSTouchBarTextJustifiedAlignTemplate" width="17" height="11"/>
         <namedColor name="ToolBarBackground">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="9Jv-Pf-leX"/>
-        <segue reference="Anp-sU-drk"/>
-    </inferredMetricsTieBreakers>
 </document>

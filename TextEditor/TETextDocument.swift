@@ -8,10 +8,10 @@
 
 import Cocoa
 
-class Document: NSDocument {
+class TETextDocument: NSDocument {
     
-    @objc var content = Content(contentString: "")
-    var contentViewController: ViewController!
+    @objc var content = TEDocumentContent(contentString: "")
+    var contentViewController: TEMainViewController!
     
     override init() {
         super.init()
@@ -47,7 +47,7 @@ class Document: NSDocument {
             addWindowController(windowController)
             
             // Set the view controller's represented object as your document.
-            if let contentVC = windowController.contentViewController as? ViewController {
+            if let contentVC = windowController.contentViewController as? TEMainViewController {
                 contentVC.representedObject = content
                 contentViewController = contentVC
             }
